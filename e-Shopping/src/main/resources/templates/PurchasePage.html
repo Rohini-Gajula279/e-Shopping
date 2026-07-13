@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Purchase page</h1>
+<center>
+	<form action="">
+	<input th: value="${productName}"> <br>
+	<input th: value="${productPrice}" id="price"> <br>
+	<input placeholder="Enter quantity" id="quantity" oninput="val()"> <br>
+	<input placeholder="Total price" id="todisplay"> <br>
+	<input type="submit" value="Confirm"> <br>
+	</form>
+	<script type="text/javascript">
+	function va()
+	{
+		var quantity=document.getElementById("quantity").value
+		var price=document.getElementById("price").value
+		var total =quantity*price
+		document.getElementById("todispaly").value=total
+	}
+</script>
+</center>
+</body>
+</html>

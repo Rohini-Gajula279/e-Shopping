@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<center>
+	<h1>Product List</h1>
+	Welcome : <h1 th:text="${custname}"></h1> <br> <br>
+	<form action="searchby">
+		<input placeholder="Search by Brand, Category, Price, Name" name="filtervalue" style="width:250px">
+		<input type="submit" value="Serach">
+	</form>
+	<table border="1">
+	<tr>
+		<th>Product Name</th>
+		<th>Product Brand</th>
+		<th>Product Price</th>
+		<th>Product Review</th>
+		<th>Product Category</th>
+		<th>Product Expirydate</th>
+	</tr>
+	<tr th:each="product:${listofproducts}">
+		<td th:text="${product.productName}"></td>
+		<td th:text="${product.productBrand}"></td>
+		<td th:text="${product.productPrice}"></td>
+		<td th:text="${product.productCategory}"></td>
+		<td th:text="${product.productExpiry}"></td>
+		<td th:text="${product.productReview}"></td>
+		<td><form action="getproductid"><input th:value="${product.productId}" name="productId" hidden="true"><input type="submit" value="Add To Cart"></form></td>
+		<td><form action=""><input hidden="true"><input type="submit" value="Buy"></form></td>
+	</tr>
+	</table>
+	<h1 th:text="${cartmsg}"></h1>
+</center>
+</body>
+</html>
